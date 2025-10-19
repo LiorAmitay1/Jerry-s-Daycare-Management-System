@@ -1,46 +1,174 @@
-דגשים והערות לעבודה:
-LinkedList:
-יצירת הלינקד ליסט נעשתה בשימוש נוסף במבנה שנמצא אך ורק בקובץ הC שהוא Node , בעצם מייצג חולייה בלינקדליסט בעלת ערך data ובעלת מצביעים לnext וprev על מנת ליצור את הרשימה המקושרת. 
-בחרתי ליצור רשימה מקושרת דו כיוונית על מנת להקל על המחיקה של חולייה בפונקציה deleteNode כך שבעת המחיקה תוכל לשנות מצביעים של החוליה שנמחקה ובכך להשלים את הרשימה המקושרת מחדש. בנוסף במחיקה התייחסתי למקרים בהם הרשימה ריקה/ יש לה איבר אחד / יש לה יותר משני איברים מכיוון שאלו הם סוגים שונים שיש להתייחס אליהם בעת מחיקה מרשימה מקושרת.
-KeyValuePair:
-כשיצרתי keyvaluepair ביקשתי מהמשתמש פונקציות שונות ובניהם העתקה על מנת לאפשר למשתמש לבחור איזה מבין ההעתקות הוא בוחר לעשות, זאת בעוד שכשאר הכנסתי את הערך והמפתח למבנה הנ"ל אז השתמשתי בפונקציית העתקה.
-כאשר ביצעתי מחיקה למבנה, קודם עשיתי מחיקה לKey לאחר מכן לvalue ולבסוף למבנה עצמו כאשר המחיקה עתמה התקיימ באמצעות פונקציית המחיקה של המשתמש.
-HashTable:
-בשימוש במבנה זה התבקשנו להשתמש בשני המבנים הקודמים שיצרנו, ולכן כשמימשתי את המבנה הנל ביצעתי include לשני המבנים הנוספים בקובץ הc.
-במבנה זה יצרתי מערך בגודל שקיבלתי מהמשתמש כדי ליצור את הHash בשיטת הchainhng כך שבכל תא במערך יש מצביע לרשימה מקושרת. כל חוליה ברשימה המקושרת שומרת keyvaluepair כך שבעת ההוספה לHash נבקש מהמשתמש key וvalue ונכניס את אותו מפתח וערך לkeyvaluepair ואותו נכניס לרשימה המקושרת שיצרנו. נשים לב שהחולייה תמצא את מקומה בhash לפי פונקציית הhash הנתונה בתרגיל כך שכשאר תיכנס לתא הנל במערך, ניצור keyvaluepair ראשית ולאחר מכן נבדוק האם קיים linkedlist בתא הנ"ל, אם כן אז נשרשר את הkeyvaluepair שכעת יצרנו, אחרת ניצור Linkedlist חדש ולאחר מכן נשרשר אליו את הkeyvaluepair שיצרנו.
-נשים לב שבגלל שהhash שומר בתוכו keyvaluepair אז בעת היצירה של הkeyvaluepair נצטרך לשלוח פונקציות מתאימות לו שמשלבות גם את פונקציות של הkey וגם את הvalue ולכן יצרתי פונקציות מתאימות ושלחתי אותן בעת היצירה של הkeyvaluepair .
-בפונקציית ההריסה- עברתי על המערך שיצרתי ובכל תא במערך בדקתי האם קיימת רשימה מקושרת, כן שאם כן שלחתי את הרשימה המקושרת לפונקציה שמוחקת אותה. לבסוף שחררתי את המערך ואת המבנה.
-MultiHashTable:
-במימוש הנ"ל התבקשנו ליצור hash ששומר בתוכו ערכים מרובים לאותו מפתח ולכן יצרתי hash רגיל שבתוכו יש key והvalue יהיה רשימה מקושרת של values שיכנסו לאותו ערך של מפתח.
-וכאשר יצרתי את הmulti קיבלתי מהמשתמש פונקציות מסוימות וידעתי שבvalue יהיה רשימה מקושרת ולכן כשאר יצרתי את הhash שלחתי לו פונקציות של value המתאימות את עצמן לרשימה המקושרת שנמצאת בvalue.
-בפונקציה: addToMultiValueHashTable בדקתי האם בhash קיים key  כך שהvalue שלו כבר רשימה מקושרת, אם לא אז יצרתי רשימה מקושרת חדשה, הוספתי את החולייה לרשימה המקושרת והוספתי את הרשימה לhashת אם כן אז פשוט שרשרתי את החוליה החדשה לרשימה המקושרת.
-בפונקציה: removeFromMultiValueHashTable בה צריך להוריד Key וvalue מהhash, ראשית בדקתי אם הkey קיים בכלל במבנה, אם כן אז חיפשתי את אותו value שארצה להוריד מהרשימה המקושרת של אותו key במבנה, כאשר מצאתי אותו הורדתי אותו מהרשימה המקושרת של הvalue, ואם הרשימה ריקה לאחר ההורדה, אז הורדתי את הרשימה עצמה מהמבנה.
-בפונקציית ההריסה- מחקתי את הhsah ולאחר מכן את המבנה עצמו. נשים לב שלhash שלחתי פונקציית הריסה שלvalue  לפי הריסה של רשימה מקושרת ולכן כל המבנה אכן נמחק.
-JerryBoree:
-כאשר יצרתי את הmain, הייתי צריכה להשתמש בכל המבנים אשר יצרתי ולכן עשיתי include עבור כולם.
-המבנים שבחרתי ליצור הם:
-1.	רשימה מקושרת – בכל חולייה יישב מצביע לjerry .
-2.	hashTable – כאשר אכניס אליו מפתח שהוא jerryID מסוג char* ומצביע לjerry כvalue.
-3.	multivalueHashTable- כאשר כל מפתח בו הוא שם של תכונה פיזית וכל jerry שיש לו את התכונה הפיזית הזו יהיה בvalua של המפתח (כמצביע לjerry).
-כאשר יצרתי את המבנים בתור המשתמש, הייתי צריכה לשלוח להם פונקציות מתאימות אשר תואמות את השילוש שלי במבנים:
--	כאשר יצרתי רשימה מקושרת:
-פונקציית העתקה נעשתה בצורה שטחית, פונקציית השחרור נעשתה בצורה של מחיקת jerry, הדפסה לפי הדפסה של jerry , פונקציות השוואה: 1- לפי 2 jerry,   2- לפי jerry וchar* שזה הID שלו, ובעצם ההשוואה נעשתה לפי הid של גרי והID הנתון.
+# Jerry Management System
 
--	כאשר יצרתי Hash:
-שלחתי פונקציות העתקה שטחיות, פונקציות שחרור שלא משחררות (מכיוון שמדובר כאן במצביעים), הדפסה לפי המשתנים שיש לי בhash כפי שציינתי, פונקציית העברה למספר- אשר מעבירה לפי הערך האסקי של אותו char* שמתקבל. ופונקציית השוואה עבור המפתח שבעצם זה id של jerry ולכן פונקציית השוואה בין char.
+## Table of Contents
 
--	כאשר יצרתי multihash:
-שלחתי לו את כל הפונקציות של hash מלבד מספר פונקציות:
-פונקציית העתקה- עמוקה עבור הkey כי כאשר נכניס jerry אכניס אותו לפי השם של התכונה הפיזית שלו וכאשר אמחוק את אותו איבר שהוא jerry לא ארצה שימחק לי גם הkey ולכן הכנסתי העתקה עמוקה. 
-פונקציית שחרור- לפי ההעתקה העמוקה יהיה שחרור עמוק.
-פונקציית הדפסה של מפתח שתדפיס את השל של המפתח.
-בהמשך הקובץ יצרתי פונקציות הריסה שונות:
-פונקציה הריסה לplanet בעת הקריאה מהקובץ של פלאנט כדי למחוק את המערכת בעת שגיאה.
-פונקצית הריסה כללית לכל המערכת אשר מוחקת את כלל המבנים. נשים לב שיש חשיבות לסדר המחיקה כי במחיקה האמיתי של הJerry מתרחשת אך ורק ברשימה המקושרת של גרים וזאת לפי הפונקציות ששלחתי אליה ולכן זה ההריסה שתתבצע אחרונה וללא דליפות זיכרון.
-פונקציית הריסה של jerry אחד מהמערכת – גם במולטי לפי שם התכונה הספציפית, וגן בhash וברשימה המקושרת.
--	בהמשך הקובץ יש את הקריאה של הקובץ טקסט.
-בקריאת קובץ טקסט יצרתי רשימה של תכונות פיזיות על מנת להוסיף את התכונה הפיזית כמפתח לMultihash תוך כדי הקריאה. נשים לב שזה מצביעים לתכונה הפיזית של גרי ולכן כאשר סיימתי ליצור את הmultihash שעושה העתקה בעצמו לשם התכונה, מחקתי את הרשימה הנל.
-לאחר מכן התפריט.
-בתפריט- מבוצע בדיוק לאור הבקשות עם דגשים ספציפים כהערות. נשים לש שכשאר יש בעיה מבחינת זיכרון התפריט יזרוק לנו שגיאה של memorypeoblem וימחק את כל התכנית.
-כאשר יש צורך במחיקה של גרי אחד או של תכונה מתוך הגרי- השתמשתי בפונקציות שיצרתי של המחיקה.
+1. [Introduction](#introduction)
+2. [Data Structures](#data-structures)
+   - [Linked List](#1-linked-list)
+   - [Hash Table](#2-hash-table)
+   - [MultiValue Hash Table](#3-multivalue-hash-table)
+3. [Jerry Object Management](#jerry-object-management)
+4. [Key Features](#key-features)
+5. [Instructions](#instructions)
+   - [Prerequisites](#1-prerequisites)
+   - [Compilation](#2-compilation)
+   - [Running the Program](#3-running-the-program)
+   - [Cleaning Up](#4-cleaning-up)
+6. [Makefile Explanation](#makefile)
+7. [Example Usage](#example-usage)
+8. [Notes](#notes)
 
+---
+
+## #Introduction
+
+This project demonstrates the design and implementation of three **generic data structures**: a **Linked List**, a **Hash Table**, and a **MultiValue Hash Table**. These structures are designed to manage various data types through customizable functions, offering flexibility for many applications.
+
+In the second part, these data structures are applied to manage custom **Jerry objects**, demonstrating practical applications in handling data efficiently.
+
+---
+
+## Data Structures
+
+### 1. Linked List
+
+A **Linked List** is a dynamic data structure that supports:
+- **Insertion**: Add new data.
+- **Deletion**: Remove data.
+- **Search by Position**: Retrieve data at a specific position.
+- **Search by Value**: Find data based on its value.
+
+This structure is ideal for flexible memory usage and sequential data management.
+
+### 2. Hash Table
+
+A **Hash Table** enables fast lookups using a key-value pair mechanism:
+- **Constant-Time Lookup**: Fast retrieval of values by their keys.
+- **Collision Handling**: Manages key collisions through linked lists in hash buckets.
+- **Single Value per Key**: Each key maps to a single value, optimizing storage.
+
+### 3. MultiValue Hash Table
+
+The **MultiValue Hash Table** extends the Hash Table by allowing:
+- **Multi-Value Mapping**: Each key can map to multiple values.
+- **Efficient Value Storage**: Useful when a key needs to reference multiple related data points.
+
+### Generic Design
+
+These structures are **generic**, allowing them to handle any data type through custom functions for **copying**, **comparing**, **destroying**, and **creating** data. This makes them flexible and reusable across different use cases.
+
+---
+
+## Jerry Object Management
+
+In the second part, the data structures are used to manage **Jerry objects**. The system provides options for:
+- **Adding a New Jerry**: Insert a new Jerry into the system.
+- **Deleting a Jerry**: Remove a Jerry from the system.
+- **Adding Attributes**: Attach custom properties to a Jerry.
+- **Displaying Jerry Information**: Print detailed information about a Jerry.
+
+This demonstrates how generic data structures can be adapted to solve real-world problems.
+
+---
+
+## Key Features
+
+- **Efficiency**: O(1) average lookup time with the Hash Table ensures quick data retrieval.
+- **Flexibility**: The generic design allows for easy adaptation to various data types.
+- **Scalability**: Supports complex relationships, like mapping multiple values to a single key.
+- **Reusability**: The modular design makes it easy to integrate these structures into other projects.
+
+---
+
+## Instructions
+
+### 1. Prerequisites
+
+Before running the project, make sure you have `gcc` installed. You can install it using:
+
+```bash
+sudo apt-get install gcc
+```
+
+### 2. Compilation
+
+To compile the project, navigate to the project directory and use the `Makefile` provided:
+
+1. **Navigate to the project directory**:
+   ```bash
+   cd /path/to/project/directory
+   ```
+
+2. **Compile the program**:
+   ```bash
+   make
+   ```
+
+This will compile all `.c` files and create an executable called `JerryBoree`.
+
+### 3. Running the Program
+
+Run the `JerryBoree` executable with the required parameters:
+
+```bash
+./JerryBoree [number_of_planets] [configuration_file_path]
+```
+
+- **[number_of_planets]**: An integer representing the number of planets used to set up the planet list.
+- **[configuration_file_path]**: A string representing the path to a file containing the planet and Jerry data.
+
+For example:
+
+```bash
+./JerryBoree 4 configuration_file.txt
+```
+
+This will start the Jerry management system using 4 planets, reading data from `configuration_file.txt`.
+
+### 4. Cleaning Up
+
+After you run the program, you can clean up the compiled files with:
+
+```bash
+make clean
+```
+
+This removes all object files (`*.o`) and the executable.
+
+---
+
+## Makefile
+
+The **Makefile** automates the build process. It includes the following key rules:
+
+- **Compiling**: The `make` command compiles all source files into object files.
+- **Linking**: It links the object files to create the `JerryBoree` executable.
+- **Cleaning**: The `make clean` command removes the object files and the executable.
+
+---
+
+## Example Usage
+
+1. **Compile the project**:
+   ```bash
+   make
+   ```
+
+2. **Run the program**:
+   ```bash
+   ./JerryBoree 4 configuration_file.txt
+   ```
+
+3. **Clean up the directory**:
+   ```bash
+   make clean
+   ```
+
+---
+
+## Notes
+
+- Ensure the input file `configuration_file.txt` is in the same directory as the executable.
+- You can modify the input file to adjust the program’s behavior.
+
+---
