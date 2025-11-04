@@ -1,4 +1,3 @@
-inbal@latitude:~/JerryBoree$ ./JerryBoree 4 configuration_file.txt
 Welcome Rick, what are your Jerry's needs today ? 
 1 : Take this Jerry away from me 
 2 : I think I remember something about my Jerry 
@@ -1406,5 +1405,3 @@ Welcome Rick, what are your Jerry's needs today ?
 9 : I had enough. Close this place 
 9
 The daycare is now clean and close ! 
-inbal@latitude:~/JerryBoree$ 
-
